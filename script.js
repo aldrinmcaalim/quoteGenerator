@@ -3,9 +3,25 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader');
+
+// Show loading
+function loading() {
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+
+// Hide loading
+function complete() {
+    if (!loader.hidden) {
+        quoteContainer.hidden = false;
+        loader.hidden = true;
+    } 
+}
 
 // Get Quote from API
 async function getQuote() {
+    loading();
     // The proxyUrl or the apiUrl give me a 403 Forbidden, meaning I don't have access to the information which means I can't use it to make random quotes 
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
     const apiUrl = 'http://api.forismatic.com/api/1.0/';
@@ -25,6 +41,8 @@ async function getQuote() {
             quoteText.classList.remove('long-quote');
         }
         quoteText.innerText = data.quoteText;
+        // Stop Loader, Show quote
+        complete();
     } catch (error) {
         getQuote();
     }
@@ -44,4 +62,5 @@ twitterBtn.addEventListener('click', tweetQuote);
 
 // On Load
 getQuote();
+
 
