@@ -26,3 +26,41 @@ body {
     background-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
+
+.quote-text {
+    font-size: 2.25rem;
+}
+
+.long-quote {
+    font-size: 2rem;
+}
+
+.fa-quote-left {
+    font-size: 3.85rem;
+}
+
+.quote-author {
+    margin-top: 15px;
+    font-size: 1.9rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width: 1000px) {
+    .quote-container {
+        margin: auto 10px;
+    }
+
+    .fa-quote-left {
+        font-size: 3.2rem;
+    }
+
+    .quote-text {
+        font-size: 1.85rem;
+    }
+
+    .quote-author {
+        font-size: 1.6rem;
+    }
+}
